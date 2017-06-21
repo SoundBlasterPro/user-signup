@@ -25,7 +25,7 @@ def goats():
     if email:
         if validate_address(email) != email:
             email_error = validate_address(email)
-        error += 1
+            error += 1
     if password_match(password, password2) != True:
         validate_error = "Passwords do not match"
         error +=1
@@ -39,8 +39,8 @@ def goats():
                         invalid_email = email_error, 
                         verify_error = validate_error
                         )
-
-    return redirect("/submission-success?username={0}".format(username))
+    if error == 0:
+        return redirect("/submission-success?username={0}".format(username))
 
 def validate(text):
 

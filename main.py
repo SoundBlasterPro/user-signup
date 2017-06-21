@@ -5,7 +5,7 @@ app = Flask(__name__)
 app.config['DEBUG'] = True
 
 @app.route("/", methods = ["POST"])
-def goats():
+def process_submission():
     username = request.form["username"]
     password = request.form["password"]
     password2 = request.form["verify"]
@@ -25,7 +25,7 @@ def goats():
     if email:
         if validate_address(email) != email:
             email_error = validate_address(email)
-        error += 1
+            error += 1
     if password_match(password, password2) != True:
         validate_error = "Passwords do not match"
         error +=1
@@ -39,8 +39,8 @@ def goats():
                         invalid_email = email_error, 
                         verify_error = validate_error
                         )
-
-    return redirect("/submission-success?username={0}".format(username))
+    if error == 0:
+        return redirect("/submission-success?username={0}".format(username))
 
 def validate(text):
 
@@ -79,7 +79,7 @@ def validate_address(email):
             period += 1
     if at_symbol > 1 or at_symbol == 0:
         return "Invalid email address"
-    if period > 1 or periodl == 0:
+    if period > 1 or period == 0:
         return "Invalid email address"
     return email
 

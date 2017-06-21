@@ -4,13 +4,17 @@
 <h1>Signup</h1>
         <form method="POST">
                 <label for="username">Username   </label>
-                <input name="username" type="text" value="{{username}}" id="username" /><div class="error">{{invalid_username}}</div>
+                <input name="username" type="text" value="{{username}}" id="username" /><div class="error" style="display:inline-block;">{{invalid_username}}</div>
+                <br>
                 <label for="password">Password   </label>
-                <input name="password" type="password" value="{{password}}" id="password" /><div class="error">{{invalid_password}}</div>
+                <input name="password" type="password" value="{{password}}" id="password" /><div class="error" style="display:inline-block;">{{invalid_password}}</div>
+                <br>
                 <label for="verify">Verify Password   </label>
-                <input name="verify" type="password" value="{{verify}}" id="verify" /><div class="error">{{verify_error}}</div>
+                <input name="verify" type="password" value="{{verify}}" id="verify" /><div class="error" style="display:inline-block;">{{verify_error}}</div>
+                <br>
                 <label for="email">Email   </label>
-                <input name="email" type="text" value="{{email}}" id="email" /><div class="error">{{invalid_email}}</div>
+                <input name="email" type="text" value="{{email}}" id="email" /><div class="error" style="display:inline-block;">{{invalid_email}}</div>
+                <br>
                 <input type="submit" />
         </form>
 {% endblock %}
